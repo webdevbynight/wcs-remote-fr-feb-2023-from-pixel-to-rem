@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>From pixel to rem</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/vb.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section id="entry-slide">
+					<h1 lang="en">From pixel to rem</h1>
+					<p>Une <span lang="en">masterclass</span> par <a href="https://victor-brito.dev">Victor Brito</a> pendant la formation développeur web et web mobile à la <a href="https://www.wildcodeschool.com/fr-FR"><span lang="en">Wild Code School</span></a> <span class="promotion">(promotion <span lang="en">remote</span> février 2023)</span></p>
+				</section>
+				<section id="slides-link">
+					<h2>Lien vers les <span lang="en">slides</span></h2>
+					<p><a href="https://webdevbynight.github.io/wcs-remote-fr-feb-2023-from-pixel-to-rem/">https://webdevbynight.github.io/wcs-remote-fr-feb-2023-from-pixel-to-rem/</a></p>
+				</section>
+				<section>
+					<section id="situation">
+						<h2>Mise en situation</h2>
+						<p>
+							<img src="images/figma-logo.svg" alt="Logo Figma" height="200">
+							<img src="images/sketch-logo.svg" alt="Logo Sketch" height="200">
+							<img src="images/adobe-xd-logo.svg" alt="Logo Adobe XD" height="200">
+						</p>
+						<p>De nouvelles icônes qui vous veulent du bien</p>
+					</section>
+					<section id="graphical-wireframe">
+						<h3>De belles maquettes à traduire en HTML / CSS / JavaScript</h3>
+						<p>
+							<img src="images/wireframe-mobile.png" alt="Exemple de maquettes Figma pour mobile">
+							<img src="images/wireframe-desktop.png" alt="Exemple de maquettes Figma pour desktop">
+						</p>
+						<p class="note">Grilles rougeâtres non contractuelles</p>
+					</section>
+					<section id="brief">
+						<h3>Le brief de l’agence / des chefs de projet / du <span lang="en">lead developer</span> / des graphistes / du N + 1 / du client final <span class="note">(rayer les mentions inutiles)</span></h3>
+						<p class="fragment fade-in-then-out" lang="en">Pixel perfect</p>
+					</section>
+					<section id="pixel-perfect">
+						<h3 lang="en">Pixel perfect in love with job offers</h3>
+						<p class="fragment fade-in">
+							<img src="images/pixel-perfect-job-offer-1.png" alt="Extrait d’offre d’emploi évoquant le pixel perfect">
+							<img src="images/pixel-perfect-job-offer-2.png" alt="Extrait d’offre d’emploi évoquant le pixel perfect">
+							<img src="images/pixel-perfect-job-offer-3.png" alt="Extrait d’offre d’emploi évoquant le pixel perfect">
+							<img src="images/pixel-perfect-job-offer-4.png" alt="Extrait d’offre d’emploi évoquant le pixel perfect">
+						</p>
+					</section>
+					<section id="pixel-perfect-bis">
+						<h3 lang="en">Pixel perfect in love with job offers</h3>
+						<p class="fragment fade-in">
+							<img src="images/pixel-perfect-job-offer-5.png" alt="Extrait d’offre d’emploi évoquant le pixel perfect">
+							<img src="images/pixel-perfect-job-offer-6.png" alt="Extrait d’offre d’emploi évoquant le pixel perfect">
+							<img src="images/pixel-perfect-job-offer-7.png" alt="Extrait d’offre d’emploi évoquant le pixel perfect">
+							<img src="images/pixel-perfect-job-offer-8.png" alt="Extrait d’offre d’emploi évoquant le pixel perfect">
+						</p>
+					</section>
+				</section>
+				<section id="solutions">
+					<h2>Solutions</h2>
+				</section>
+				<section>
+					<section id="all-pixel-solution">
+						<h3>La solution de facilité</h3>
+						<p>Tout en pixels</p>
+					</section>
+					<section id="all-pixel-solution-disadvantages">
+						<h4>Inconvénients</h4>
+						<ul>
+							<li class="fragment"><code>px</code> = unité absolue</li>
+							<li class="fragment">Pas top pour les tailles de police</li>
+							<li class="fragment">Les blocs en pixels ne s’agrandissent pas en cas de zoom texte</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section id="default-rem-solution">
+						<h3>Utilisation de l’unité rem</h3>
+						<blockquote cite="https://developer.mozilla.org/fr/docs/Web/CSS/length#rem">
+							<p>Cette unité représente la <code lang="en">font-size</code> de l’élément racine (par exemple la taille de la police de l’élément <code>&lt;html&gt;</code>).</p>
+							<footer>
+								<p>Source&nbsp;: <cite lang="en"><a href="https://developer.mozilla.org/fr/docs/Web/CSS/length#rem">Mozilla Developer Network</a></cite></p>
+							</footer>
+						</blockquote>
+					</section>
+					<section id="default-rem-solution-difficulties">
+						<h4>Difficultés</h4>
+						<ul>
+							<li class="fragment">Taille de police de l’élément racine définie à 16 pixels par défaut</li>
+							<li class="fragment">Comment calculer&nbsp;? <img src="images/figma-text-layer-with-font-size-in-pixels.png" alt="Affichage des styles d’un calque texte dans Figma, avec la légende demandant combien font 18 pixels en rem"></li>
+						</ul>
+					</section>
+					<section id="default-rem-solution-means">
+						<h4>Comment calculer&nbsp;?</h4>
+						<ul>
+							<li class="fragment"><img src="images/calculator.png" alt="Calculatrice scientifique de macOS"></li>
+							<li class="fragment">
+								<pre>
+									<code data-trim>
+.element {
+  font-size: calc(18rem / 16);
+}
+									</code>
+								</pre>
+							</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section id="alternative-rem-solution">
+						<h3>Le rem sans peine</h3>
+						<ul>
+							<li class="fragment">Définir la taille de police de l’élément racine à 10 pixels</li>
+							<li class="fragment">
+								<pre>
+									<code data-trim>
+// &#x274c; Bad
+html {
+  font-size: 10px;
+}
+									</code>
+								</pre>
+							</li>
+							<li class="fragment">
+								<pre>
+									<code data-trim>
+// &#x2705; Good
+html {
+  font-size: 62.5%;
+}
+									</code>
+								</pre>
+							</li>
+							<li class="fragment">10 / 16 = 0,625 (d’où les 62,5&nbsp;%)</li>
+						</ul>
+					</section>
+					<section id="alternative-rem-solution-advantages">
+						<h4>Avantages</h4>
+						<ul>
+							<li class="fragment">1 rem = 10 pixels</li>
+							<li class="fragment">Diviser par 10 est à portée de main</li>
+							<li class="fragment">Très pratique pour un design totalement élastique</li>
+						</ul>
+					</section>
+				</section>
+				<section id="thanks">
+					<h2>Merci</h2>
+					<p>Des questions&nbsp;?</p>
+					<div class="credits">
+						<h3>Crédits</h3>
+						<ul>
+							<li><a href="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg">https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg</a> (domaine public)</li>
+							<li><a href="https://upload.wikimedia.org/wikipedia/commons/5/59/Sketch_Logo.svg">https://upload.wikimedia.org/wikipedia/commons/5/59/Sketch_Logo.svg</a> (domaine public)</li>
+							<li><a href="https://upload.wikimedia.org/wikipedia/commons/c/c2/Adobe_XD_CC_icon.svg">https://upload.wikimedia.org/wikipedia/commons/c/c2/Adobe_XD_CC_icon.svg</a> (domaine public)</li>
+							<li><a href="https://www.figma.com/community/file/767127152320102433">https://www.figma.com/community/file/767127152320102433"></a> (CC BY 4.0)</li>
+						</ul>
+					</div>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

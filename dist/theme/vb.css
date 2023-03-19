@@ -1,0 +1,192 @@
+@charset "utf-8";
+
+/**
+ * @author Victor Brito
+ * 
+ * Custom slide theme
+ */
+
+/** @section */
+@font-face {
+    font-family: "Oswald";
+    src: url("fonts/Oswald-Regular.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Oswald";
+    src: url("fonts/Oswald-Bold.woff2") format("woff2");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Oswald Medium";
+    src: url("fonts/Oswald-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Oswald SemiBold";
+    src: url('fonts/Oswald-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Oswald Light";
+    src: url('fonts/Oswald-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Oswald ExtraLight";
+    src: url('fonts/Oswald-ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+/** @section General layout */
+:root {
+    --font: Oswald, "League Gothic", Arial, Helvetica, sans-serif;
+    --light-font: "Oswald Light", "League Gothic", Arial, Helvetica, sans-serif;
+    --code-font: "Courier New", Courier, monospace;
+    --brand-text: beige;
+    --brand-background: #45453e;
+    --arrow-colour: beige;
+    --note-text: 0.625rem;
+    --container: 25vw;
+}
+.reveal {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    font-family: var(--font);
+    color: var(--brand-text);
+    background: var(--brand-background);
+}
+
+/** @section Headings */
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+    font-weight: bold;
+}
+.reveal h1 {
+    font-size: 3rem;
+    margin: 3vmax 0;
+}
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+    font-size: 2rem;
+    margin: 1.5vmax 0;
+}
+
+/** @section Lists and paragraphs */
+.reveal ul,
+.reveal ol {
+    text-align: initial;
+    max-width: var(--container);
+    margin: 0 auto;
+}
+.reveal ul {
+    list-style: none;
+}
+.reveal li,
+.reveal p {
+    margin: 0.75rem 0;
+}
+
+/** @section Blockquote */
+.reveal blockquote {
+    font-style: italic;
+    max-width: var(--container);
+    padding-left: 0.5vw;
+    margin: 0 auto;
+    border-left: 0.1vw solid;
+}
+.reveal blockquote footer {
+    font-size: var(--note-text);
+    font-style: initial;
+}
+.reveal blockquote footer p {
+    text-align: end;
+}
+.reveal blockquote footer p::before {
+    content: "— ";
+}
+.reveal blockquote p {
+    text-align: initial;
+}
+
+/** @section Images */
+.reveal img {
+    vertical-align: middle;
+}
+.reveal li img {
+    display: block;
+    margin: 0 auto;
+}
+
+/** @section Links */
+.reveal a {
+    color: inherit;
+}
+
+/** @section Code */
+.reveal pre,
+.reveal code {
+    font-family: var(--code-font);
+}
+.reveal pre {
+    font-size: 0.75rem;
+    text-align: initial;
+}
+
+/** @section Controls */
+.reveal .controls .navigate-right.highlight,
+.reveal .controls .navigate-down.highlight {
+    animation: none;
+}
+.reveal .controls .controls-arrow::before,
+.reveal .controls .controls-arrow::after {
+    background-color: var(--arrow-colour);
+}
+
+/** @section Credits */
+.reveal .credits {
+    font-size: var(--note-text);
+    font-family: var(--light-font);
+    max-width: var(--container);
+    margin: 2rem auto 0;
+}
+.reveal .credits :first-child {
+    font-size: inherit;
+    font-weight: normal;
+    text-align: initial;
+    margin: 0;
+}
+.reveal .credits li {
+    margin: 0;
+}
+
+/** @section Misc */
+.reveal .promotion {
+    display: block;
+}
+.reveal  h2 .note,
+.reveal  h3 .note,
+.reveal  h4 .note {
+    display: block;
+}
+.reveal .note {
+    font-size: var(--note-text);
+    font-family: var(--light-font);
+}
