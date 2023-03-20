@@ -54,7 +54,7 @@
 :root {
     --font: Oswald, "League Gothic", Arial, Helvetica, sans-serif;
     --light-font: "Oswald Light", "League Gothic", Arial, Helvetica, sans-serif;
-    --code-font: "Courier New", Courier, monospace;
+    --code-font: Monaco, Consolas, "Lucida Console", monospace;
     --brand-text: beige;
     --brand-background: #45453e;
     --arrow-colour: beige;
